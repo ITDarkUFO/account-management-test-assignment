@@ -16,12 +16,14 @@ namespace AccountManagement.Application.DTOs
         [Required]
         public required DateOnly Birthday { get; set; }
 
-        [Required]
+        [Required, RegularExpression(@"^\d{4} \d{6}$")]
         public required string PassportNumber { get; set; }
 
         [Required]
+        [RegularExpression("^7\\d{10}$")]
         public required string PhoneNumber { get; set; }
 
+        [EmailAddress]
         public string? Email { get; set; }
 
         public string? Address { get; set; }

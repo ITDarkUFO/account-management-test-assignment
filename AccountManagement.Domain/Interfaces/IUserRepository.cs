@@ -6,8 +6,9 @@ namespace AccountManagement.Domain.Interfaces
     {
         public Task<User?> GetUserByIdAsync(int id);
 
-        public Task<User> CreateUserAsync(User user);
+        public Task<User?> FindUserAsync(string? firstName = null, string? lastName = null, string? middleName = null, 
+            string? phoneNumber = null, string? email = null);
 
-        public Task<User?> FindUserAsync(string? FirstName, string? LastName, string? MiddleName, string? PhoneNumber, string? Email);
+        public Task CreateUserAsync(User user);
     }
 }

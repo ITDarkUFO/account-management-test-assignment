@@ -12,12 +12,13 @@ namespace AccountManagement.Application.DTOs
 
         public DateOnly? Birthday { get; set; }
 
+        [RegularExpression(@"^\d{4} \d{6}$")]
         public string? PassportNumber { get; set; }
 
-        [Required]
-        [Phone]
+        [Required, RegularExpression(@"^7\d{10}$")]
         public required string PhoneNumber { get; set; }
 
+        [EmailAddress]
         public string? Email { get; set; }
 
         public string? Address { get; set; }

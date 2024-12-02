@@ -8,9 +8,10 @@ namespace AccountManagement.Application.Mapping
     {
         public MappingProfile()
         {
-            CreateMap<MailUserCreateDto, User>();
-            CreateMap<MobileUserCreateDto, User>();
-            CreateMap<WebUserCreateDto, User>();
+            CreateMap<UserCreateDto, MailUserCreateDto>();
+            CreateMap<UserCreateDto, MobileUserCreateDto>();
+            CreateMap<UserCreateDto, WebUserCreateDto>();
+            CreateMap<UserCreateDto, User>();
         }
     }
 }
