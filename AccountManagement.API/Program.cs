@@ -1,4 +1,5 @@
 ﻿using AccountManagement.API.Filters;
+using AccountManagement.Application.Interfaces;
 using AccountManagement.Application.Services;
 using AccountManagement.Domain.Interfaces;
 using AccountManagement.Infrastructure;
@@ -39,7 +40,7 @@ builder.Services.AddSwaggerGen(options =>
 
 builder.Services.AddDbContext<UserContext>(options => options.UseSqlServer(connectionString));
 builder.Services.AddScoped<IUserRepository, UserRepository>();
-builder.Services.AddScoped<UserService>();
+builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddScoped<XDeviceHeaderParameter>();
 builder.Services.AddScoped<XDeviceFilter>();
 

@@ -2,15 +2,15 @@
 using AccountManagement.API.Filters;
 using Microsoft.AspNetCore.Mvc;
 using System.Text.Json;
-using AccountManagement.Application.Services;
+using AccountManagement.Application.Interfaces;
 
 namespace AccountManagement.API.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    public class UserController(UserService userService) : ControllerBase
+    public class UserController(IUserService userService) : ControllerBase
     {
-        private readonly UserService _userService = userService;
+        private readonly IUserService _userService = userService;
 
         [HttpGet]
         public async Task<IActionResult> GetUserByIdAsync(int id)

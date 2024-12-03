@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AccountManagement.Applicati
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AccountManagement.Infrastructure", "AccountManagement.Infrastructure\AccountManagement.Infrastructure.csproj", "{FC9D739E-52E4-43A8-9ECC-79C18D4D9E65}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AccountManagement.Tests", "AccountManagement.Tests\AccountManagement.Tests.csproj", "{D1C6328B-3A35-48DB-89B5-F063787EEC4A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{FC9D739E-52E4-43A8-9ECC-79C18D4D9E65}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FC9D739E-52E4-43A8-9ECC-79C18D4D9E65}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FC9D739E-52E4-43A8-9ECC-79C18D4D9E65}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D1C6328B-3A35-48DB-89B5-F063787EEC4A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D1C6328B-3A35-48DB-89B5-F063787EEC4A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D1C6328B-3A35-48DB-89B5-F063787EEC4A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D1C6328B-3A35-48DB-89B5-F063787EEC4A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

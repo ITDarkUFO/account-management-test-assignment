@@ -6,7 +6,7 @@ namespace AccountManagement.Infrastructure
 {
     public class UserContext(DbContextOptions<UserContext> options) : DbContext(options)
     {
-        public virtual DbSet<User> Users { get; set; }
+        public virtual DbSet<User> Users { get; set; } = default!;
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

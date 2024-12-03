@@ -1,4 +1,5 @@
 ﻿using AccountManagement.Application.DTOs;
+using AccountManagement.Application.Interfaces;
 using AccountManagement.Domain.Entities;
 using AccountManagement.Domain.Interfaces;
 using AutoMapper;
@@ -6,7 +7,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace AccountManagement.Application.Services
 {
-    public class UserService(IUserRepository repository, IMapper mapper)
+    public class UserService(IUserRepository repository, IMapper mapper) : IUserService
     {
         private readonly IUserRepository _repository = repository;
         private readonly IMapper _mapper = mapper;
