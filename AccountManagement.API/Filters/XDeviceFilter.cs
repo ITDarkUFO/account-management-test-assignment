@@ -14,13 +14,14 @@ namespace AccountManagement.API.Filters
 
         public void OnActionExecuting(ActionExecutingContext context)
         {
-            var xDevice = context.HttpContext.Request.Headers["X-Device"].ToString().ToLowerInvariant();
-
-            if (string.IsNullOrEmpty(xDevice))
+            if (!context.HttpContext.Request.Headers.TryGetValue("X-Device", out var xDeviceValues))
             {
                 _logger.LogWarning("X-Device header is missing");
                 context.Result = new BadRequestObjectResult("Missing required header: X-Device");
+                return;
             }
+
+            var xDevice = xDeviceValues.First()!.ToString().ToLowerInvariant();
 
             switch (xDevice)
             {
@@ -31,8 +32,8 @@ namespace AccountManagement.API.Filters
                     break;
 
                 default:
-                    _logger.LogWarning("Wrond X-Device header");
-                    context.Result = new BadRequestObjectResult("Wrond required header: X-Device");
+                    _logger.LogWarning("Wrong X-Device header");
+                    context.Result = new BadRequestObjectResult("Wrong required header: X-Device");
                     break;
             }
         }

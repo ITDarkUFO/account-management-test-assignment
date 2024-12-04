@@ -14,19 +14,4 @@
     <ProjectReference Include="..\AccountManagement.Domain\AccountManagement.Domain.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Compile Update="Resources\DTOs\MailUserCreateDto.Designer.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>MailUserCreateDto.resx</DependentUpon>
-    </Compile>
-  </ItemGroup>
-
-  <ItemGroup>
-    <EmbeddedResource Update="Resources\DTOs\MailUserCreateDto.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>MailUserCreateDto.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-  </ItemGroup>
-
 </Project>
