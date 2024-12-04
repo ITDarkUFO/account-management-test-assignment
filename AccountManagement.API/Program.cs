@@ -4,6 +4,7 @@ using AccountManagement.Application.Services;
 using AccountManagement.Domain.Interfaces;
 using AccountManagement.Infrastructure;
 using AccountManagement.Infrastructure.Repositories;
+using AccountManagement.Infrastructure.SeedData;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
 
@@ -38,7 +39,9 @@ builder.Services.AddSwaggerGen(options =>
     });
 });
 
-builder.Services.AddDbContext<UserContext>(options => options.UseSqlServer(connectionString));
+builder.Services
+    .AddDbContext<UserContext>(options => options.UseSqlServer(connectionString))
+    .AddHealthChecks();
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddScoped<XDeviceHeaderParameter>();
@@ -54,10 +57,13 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
+app.UseHealthChecks("/health");
+
 app.UseHttpsRedirection();
 
 app.UseAuthorization();
 
 app.MapControllers();
 
-app.Run();
+app.InitializeDatabase()
+    .Run();

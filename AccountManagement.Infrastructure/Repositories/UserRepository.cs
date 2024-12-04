@@ -40,7 +40,11 @@ namespace AccountManagement.Infrastructure.Repositories
             if (email != null)
                 query = query.Where(q => q.Email == email);
 
-            return await query.FirstOrDefaultAsync();
+            if (firstName != null || lastName != null || middleName != null ||
+                phoneNumber != null || email != null)
+                return await query.FirstOrDefaultAsync();
+
+            return null;
         }
     }
 }

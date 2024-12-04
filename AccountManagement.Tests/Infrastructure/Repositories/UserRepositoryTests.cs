@@ -71,6 +71,20 @@ namespace AccountManagement.Tests.Infrastructure.Repositories
             Assert.Null(nonExistentUserByValues);
         }
 
+        [Fact]
+        public async Task GetFindUserAsync_ShouldReturnNull_WhenNoUserData()
+        {
+            // Arrange
+            using var context = await TestUserContextFactory.GetContextAsync();
+            var repo = new UserRepository(context);
+
+            // Act
+            var nonExistentUserByValues = await repo.FindUserAsync();
+
+            // Assert
+            Assert.Null(nonExistentUserByValues);
+        }
+
         private static async Task<User> CreateTestUserAsync(UserContext context)
         {
             var repo = new UserRepository(context);

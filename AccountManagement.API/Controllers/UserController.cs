@@ -51,7 +51,7 @@ namespace AccountManagement.API.Controllers
             if (user == null)
                 return NotFound();
 
-            return Ok(user);
+            return Ok(JsonSerializer.Serialize(user));
         }
     }
 }
